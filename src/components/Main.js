@@ -1,10 +1,12 @@
 import { useContext, useEffect } from "react";
 import { AppContext } from "../context/Context.provider";
 import { getCountries } from "../utils/data";
-import { GridCountries } from "./GridCountries";
+import { GridCountries } from "./pages/GridCountries";
+import { Header } from "./Header";
+import "../styles/main.scss";
 
 export const Main = () => {
-  const { setCountries, setAllCountries } = useContext(AppContext);
+  const { setCountries, setAllCountries, theme } = useContext(AppContext);
 
   useEffect(() => {
     getCountries().then(({ data }) => {
@@ -13,5 +15,10 @@ export const Main = () => {
     });
   }, [setCountries, setAllCountries]);
 
-  return <GridCountries />;
+  return (
+    <div className={`Main ${theme === "dark" ? "dark" : ""} `}>
+      <Header />
+      <GridCountries />
+    </div>
+  );
 };

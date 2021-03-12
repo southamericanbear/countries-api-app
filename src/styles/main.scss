@@ -35,3 +35,17 @@ code {
 
 
 
+.Main{
+    min-height: 100vh;
+}
+
+
+.Main.light{
+    background: $veryLightGray;
+    color: $veryDarkBlueLightModeTxt;
+}
+
+.Main.dark{
+    background: $veryDarkBlueDarkModeBG;
+    color: $white;
+}

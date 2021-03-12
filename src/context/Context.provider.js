@@ -34,7 +34,22 @@ export const AppProvider = ({ children }) => {
   const [countries, setCountries] = useState([]);
   const [region, setRegion] = useState("");
 
-  const toggleTheme = () => setTheme(theme === "light" ? "dark" : "light");
+  const toggleTheme = () => {
+    if (theme === "light") {
+      window.localStorage.setItem("theme", "dark");
+      setTheme("dark");
+    } else {
+      window.localStorage.setItem("theme", "light");
+      setTheme("light");
+    }
+  };
+
+  useEffect(() => {
+    const localTheme = window.localStorage.getItem("theme");
+    if (localTheme) {
+      setTheme(localTheme);
+    }
+  }, []);
 
   const getCountryNameByCode = (code) => {
     const country = allCountries.find((country) => country.alpha3Code === code);

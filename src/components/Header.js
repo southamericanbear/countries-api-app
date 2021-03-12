@@ -1,37 +1,24 @@
-import React, { useEffect } from "react";
-import Brightness3OutlinedIcon from "@material-ui/icons/Brightness3Outlined";
-import styled from "styled-components";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { ThemeSwitch } from "./ThemeSwitch";
+import { AppContext } from "../context/Context.provider";
+import styles from "../styles/Header.module.scss";
 
-const Navbar = styled.div`
-  background: ${(props) => props.theme.background};
-  transition: all 0.5s ease;
-`;
-
-export const Header = (props) => {
-  const changeTheme = () => {
-    if (props.theme === "light") {
-      window.localStorage.setItem("theme", "dark");
-      props.setTheme("dark");
-    } else {
-      window.localStorage.setItem("theme", "light");
-      props.setTheme("light");
-    }
-  };
-
-  useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme");
-    if (localTheme) {
-      props.setTheme(localTheme);
-    }
-  }, [props]);
+export const Header = () => {
+  const { theme, toggleTheme } = useContext(AppContext);
 
   return (
-    <Navbar className="navbar">
-      <h1>Where in the world?</h1>
-      <div className="theme-switcher" onClick={changeTheme}>
-        <Brightness3OutlinedIcon className="icon" />
-        <span>Dark Mode</span>
+    <div
+      className={`${styles.Fwc} ${
+        theme === "light" ? styles.light : styles.dark
+      }   `}
+    >
+      <div className={styles.Header}>
+        <p>
+          <Link to="/">Where in the world?</Link>
+        </p>
+        <ThemeSwitch theme={theme} toggleTheme={toggleTheme} />
       </div>
-    </Navbar>
+    </div>
   );
 };
