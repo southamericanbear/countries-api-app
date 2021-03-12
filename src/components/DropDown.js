@@ -37,11 +37,14 @@ export const DropDown = ({
       </div>
 
       <ul className={isOpen ? styles.open : ""}>
-        {selectedItem && <li onClick={() => handleSelect("")}>{buttonText}</li>}
+        {selectedItem && (
+          <li onClick={() => handleSelect("dick")}>{buttonText}</li>
+        )}
         {list.map((item) => (
           <li
             key={item}
             className={item === selectedItem ? styles.selected : ""}
+            onClick={() => handleSelect(item)}
           >
             {item}
           </li>
