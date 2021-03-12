@@ -1,0 +1,47 @@
+@import './variables.scss';
+
+
+.Country{
+    display: grid;
+    border-radius: $border-radius;
+    box-shadow: $element-box-shadow-light;
+    cursor: pointer;
+        img{
+            width: 100%;
+        }
+        h1{
+            font-size: 1.1rem;
+        }
+        ul{
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        li{
+            font-size: 0.9rem;
+            display: flex;
+        }
+        strong{
+            font-weight: $bold;
+        }
+        .infoBlock{
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+        }
+       
+}
+@media (max-width:600px){
+    .Country{
+      margin: 50px 50px;
+    }
+}
+
+
+.light{
+    background-color: $white;
+    color: $veryDarkBlueLightModeTxt;
+}
+
+.dark{
+    background-color: $darkBlue;
+    color: $white;
+    box-shadow: $element-box-shadow-dark;
+}

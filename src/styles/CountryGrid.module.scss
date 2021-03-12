@@ -1,0 +1,14 @@
+@import './variables.scss';
+
+.CountryGrid{
+    padding: 2rem 0;
+}
+
+@media screen and (min-width:42rem){
+    .CountryGrid{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 246px);
+        justify-content: center;
+        gap: 4rem;
+    }
+}
