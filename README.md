@@ -1,7 +1,7 @@
 
 <h1>Countries App</h1>
 
-<h5><a href='https://countriesapp22.netlify.app/'>Check the app here</a></h5>
+<h5><a href='https://countriesapp22.netlify.app/' target='_blank'>Check the app here</a></h5>
 
 
 <p>star the app using <b>NPM install</b></p>
