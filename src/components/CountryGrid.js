@@ -18,7 +18,10 @@ const CountryGrid = ({ history }) => {
           population={country.population}
           region={country.region}
           capital={country.capital}
-          onClick={() => history.push(country.alpha3Code)}
+          onClick={() => {
+            history.push(country.alpha3Code);
+            window.localStorage.setItem("code", country.alpha3Code);
+          }}
         />
       ))}
     </div>
